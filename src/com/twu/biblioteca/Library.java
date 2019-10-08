@@ -27,21 +27,27 @@ public class Library {
     }
 
     public void checkOutBook(String title){
+        boolean found = false;
         for (Book book : books) {
-            if (book.title.equals(title)) {
-                book.checkOut();
-                break;
+            if(!found) {
+                if (book.title.equals(title)) {
+                    book.checkOut();
+                    found = true;
+                }
             }
         }
-        System.out.println("Sorry, that book is not available");
+        if(!found) System.out.println("Sorry, that book is not available");
     }
     public void returnBook(String title){
+        boolean found = false;
         for (Book book : books) {
-            if (book.title.equals(title)) {
-                book.returnBook();
-                break;
+            if(!found) {
+                if (book.title.equals(title)) {
+                    book.returnBook();
+                    found = true;
+                }
             }
         }
-        System.out.println("That is not a valid book to return");
+        if(!found) System.out.println("That is not a valid book to return");
     }
 }

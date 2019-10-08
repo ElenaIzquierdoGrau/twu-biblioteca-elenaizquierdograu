@@ -39,21 +39,29 @@ public class BibliotecaTest {
 
     }
 
-    @Test(expected=InvalidMenuOptionException.class)
-    public void illegalOptionMenu() throws InvalidMenuOptionException{
-        ArrayList<Book> books;
-        books = bibliotecaApp.menu.choseOption("Profile");
-    }
-
     @Test
-    public void quitApplicationTest() throws InvalidMenuOptionException{
-        ArrayList<Book> books;
-        books = bibliotecaApp.menu.choseOption("Quit");
+    public void illegalOptionMenu(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Please select a valid option!");
+        String expected = expectedStringWriter.toString();
+
+        ArrayList<Book> books = bibliotecaApp.menu.choseOption(3);
+        assertEquals(expected,outContent.toString());
         assertNull(books);
     }
 
     @Test
-    public void listBooksFromMenuTest() throws InvalidMenuOptionException{
+    public void quitApplicationTest(){
+        ArrayList<Book> books;
+        books = bibliotecaApp.menu.choseOption(2);
+        assertNull(books);
+    }
+
+    @Test
+    public void listBooksFromMenuTest(){
         ArrayList<Book> books_expected = new ArrayList<Book>();
         Book a = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
         Book b = new Book("La sombra del viento",2017,"Elena Grau");
@@ -61,7 +69,7 @@ public class BibliotecaTest {
         books_expected.add(b);
 
         ArrayList<Book> books;
-        books = bibliotecaApp.menu.choseOption("List of books");
+        books = bibliotecaApp.menu.choseOption(1);
 
         for(int i = 0; i<books.size(); i++){
             assertEquals(books_expected.get(i).title,books.get(i).title);
@@ -78,7 +86,7 @@ public class BibliotecaTest {
 
         bibliotecaApp.menu.l.checkOutBook("La sombra del viento");
         ArrayList<Book> books;
-        books = bibliotecaApp.menu.choseOption("List of books");
+        books = bibliotecaApp.menu.choseOption(1);
 
         for(int i = 0; i<books.size(); i++){
             assertEquals(books_expected.get(i).title,books.get(i).title);

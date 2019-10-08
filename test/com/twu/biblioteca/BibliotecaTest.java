@@ -28,7 +28,7 @@ public class BibliotecaTest {
         books_expected.add(b);
 
         ArrayList<Book> books;
-        books = bibliotecaApp.getBooks();
+        books = bibliotecaApp.menu.l.getBooks();
 
         for(int i = 0; i<books.size(); i++){
             assertEquals(books_expected.get(i).title,books.get(i).title);
@@ -104,13 +104,27 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void unsuccessfulCheckOutBookTest(){
+    public void unavailableCheckOutBookTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         Book book = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
         book.setCheckedOut(true);
         book.checkOut();
         assertEquals(true, book.getCheckedOut());
+
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Sorry, that book is not available");
+        String expected = expectedStringWriter.toString();
+
+        assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void wrongSpellingCheckOutBookTest(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        l.checkOutBook("Lo que el viento se levo");
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
@@ -138,11 +152,25 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void unsuccessfulReturnBookTest(){
+    public void unavailableReturnBookTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
         Book book = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
         book.returnBook();
+
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("That is not a valid book to return");
+        String expected = expectedStringWriter.toString();
+
+        assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void wrongSpellingReturnBookTest(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        l.returnBook("Lo que el veinto se llevo");
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);

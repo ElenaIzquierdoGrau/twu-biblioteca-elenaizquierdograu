@@ -18,19 +18,30 @@ public class Library {
 
     public ArrayList<Book> getAvailableBooks(){
         ArrayList<Book> availableBooks = new ArrayList<Book>();
-        for(int i = 0; i<books.size(); i++) {
-            if(!books.get(i).checkedOut){
-                availableBooks.add(books.get(i));
+        for (Book book : books) {
+            if (!book.checkedOut) {
+                availableBooks.add(book);
             }
         }
         return availableBooks;
     }
 
     public void checkOutBook(String title){
-        for(int i = 0; i<books.size(); i++) {
-            if(books.get(i).title.equals(title)){
-                books.get(i).checkOut();
+        for (Book book : books) {
+            if (book.title.equals(title)) {
+                book.checkOut();
+                break;
             }
         }
+        System.out.println("Sorry, that book is not available");
+    }
+    public void returnBook(String title){
+        for (Book book : books) {
+            if (book.title.equals(title)) {
+                book.returnBook();
+                break;
+            }
+        }
+        System.out.println("That is not a valid book to return");
     }
 }

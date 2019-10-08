@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class BibliotecaTest {
-    BibliotecaApp bibliotecaApp = new BibliotecaApp();
-    Library l = new Library();
+    private BibliotecaApp bibliotecaApp = new BibliotecaApp();
+    private Library l = new Library();
 
     @Test
     public void welcomeMessageTest() {
@@ -28,16 +28,16 @@ public class BibliotecaTest {
         books_expected.add(b);
 
         ArrayList<Book> books;
-        books = bibliotecaApp.menu.l.getBooks();
+        books = bibliotecaApp.getBooks();
 
         for(int i = 0; i<books.size(); i++){
             assertEquals(books_expected.get(i).title,books.get(i).title);
             assertEquals(books_expected.get(i).year,books.get(i).year);
             assertEquals(books_expected.get(i).author,books.get(i).author);
         }
+
+
     }
-
-
 
     @Test(expected=InvalidMenuOptionException.class)
     public void illegalOptionMenu() throws InvalidMenuOptionException{
@@ -49,7 +49,7 @@ public class BibliotecaTest {
     public void quitApplicationTest() throws InvalidMenuOptionException{
         ArrayList<Book> books;
         books = bibliotecaApp.menu.choseOption("Quit");
-        assertEquals(null, books);
+        assertNull(books);
     }
 
     @Test

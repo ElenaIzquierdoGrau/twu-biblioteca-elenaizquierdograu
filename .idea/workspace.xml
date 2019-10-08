@@ -4,9 +4,12 @@
     <list default="true" id="a93a1b1a-243e-4ca8-89ef-9e2325a8371d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/ExampleTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.BibliotecaTest">
+  <component name="RunManager" selected="JUnit.BibliotecaTest.listBooksTest">
     <configuration name="BibliotecaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="biblioteca" />
       <extension name="coverage">
@@ -128,10 +131,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BibliotecaTest.listBooksTest" />
         <item itemvalue="JUnit.BibliotecaTest" />
         <item itemvalue="JUnit.BibliotecaTest.wrongSpellingReturnBookTest" />
         <item itemvalue="JUnit.BibliotecaTest.wrongSpellingCheckOutBookTest" />
-        <item itemvalue="JUnit.BibliotecaTest.listBooksTest" />
         <item itemvalue="JUnit.BibliotecaTest.unsuccessfulReturnBookTest" />
       </list>
     </recent_temporary>
@@ -147,7 +150,7 @@
       <option name="presentableId" value="Default" />
       <updated>1570446162479</updated>
       <workItem from="1570446164624" duration="8638000" />
-      <workItem from="1570520858131" duration="7341000" />
+      <workItem from="1570520858131" duration="8842000" />
     </task>
     <servers />
   </component>

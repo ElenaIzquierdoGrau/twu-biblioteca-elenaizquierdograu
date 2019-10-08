@@ -3,8 +3,8 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class BibliotecaApp {
-    String welcomeMessage;
-    Library l;
+    private String welcomeMessage;
+    private Library l;
     Menu menu;
 
     public BibliotecaApp() {
@@ -13,7 +13,7 @@ public class BibliotecaApp {
         this.menu = new Menu();
     }
 
-    public String getWelcomeMessage() {
+    String getWelcomeMessage() {
         return welcomeMessage;
     }
 

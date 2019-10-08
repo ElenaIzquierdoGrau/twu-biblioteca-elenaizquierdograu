@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 public class Menu {
-    ArrayList<String> options;
+    private ArrayList<String> options;
     Library l;
 
     public Menu(){

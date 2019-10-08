@@ -4,27 +4,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
-    Library l;
-
-    public Menu(){
-        l = new Library();
-    }
-
-    public ArrayList<Book> choseOption(Integer option){
+    public char displayAndChoseOption(){
+        System.out.println("Choose a menu option(1, 2 or 3)");
+        System.out.println("1. List of books");
+        System.out.println("2. Return book");
+        System.out.println("3. Quit application");
         Scanner scanner = new Scanner(System.in);
+
+        int option = scanner.nextInt();
         switch(option) {
             case 1:
-                return l.getAvailableBooks();
+                return 'l';
             case 2:
-                System.out.println("Write the title of the book you want to return");
-                String title = scanner.nextLine();
-                l.returnBook(title);
-                return null;
+                return 'r';
             case 3:
-                System.exit(0);
+                return 'q';
             default:
                 System.out.println("Please select a valid option!");
-                return null;
+                return 'i';
         }
     }
 }

@@ -12,18 +12,32 @@ public class Library {
         this.books.add(b);
     }
 
-    public ArrayList<Book> getBooks() {
-        return books;
+    public void printAllBooks() {
+        System.out.println("Here you have the list of all the books in the library");
+        String first_line = "|      Title            |       Author      |   Year  |";
+        System.out.println(first_line);
+        for (Book b : books) {
+            String line = "";
+            line = line + b.title + " | " + b.author + " | " + b.year;
+            System.out.println(line);
+        }
     }
 
-    public ArrayList<Book> getAvailableBooks(){
+    public void listAvailableBooks(){
         ArrayList<Book> availableBooks = new ArrayList<Book>();
         for (Book book : books) {
             if (!book.checkedOut) {
                 availableBooks.add(book);
             }
         }
-        return availableBooks;
+        System.out.println("Here you have the list of available books of the library");
+        String first_line = "|      Title            |       Author      |   Year  |";
+        System.out.println(first_line);
+        for (Book ab : availableBooks) {
+            String line = "";
+            line = line + ab.title + " | " + ab.author + " | " + ab.year;
+            System.out.println(line);
+        }
     }
 
     public void checkOutBook(String title){

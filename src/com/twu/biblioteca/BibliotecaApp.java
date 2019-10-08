@@ -13,7 +13,7 @@ public class BibliotecaApp {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println(bibliotecaApp.welcomeMessage);
-        System.out.println("Choose a menu option writing the number:");
+        System.out.println("Choose a menu option(1, 2 or 3)");
         System.out.println("1. List of books");
         System.out.println("2. Return book");
         System.out.println("3. Quit application");
@@ -23,14 +23,18 @@ public class BibliotecaApp {
             ArrayList<Book> res = bibliotecaApp.menu.choseOption(option);
 
             if (res != null) {
+                System.out.println("Here you have the list of books of the library");
+
                 for (Book r : res) {
                     String line = "";
                     line = line + r.title + " | " + r.author + " | " + r.year;
                     System.out.println(line);
                 }
+                System.out.println("\n");
                 System.out.println("You want to checkout or return some of these books?");
                 System.out.println("To checkout a book enter CheckOut and the title with a space between them. Example: CheckOut Lo que el viento se llevo");
                 System.out.println("To return a book enter Return and the title with a space between them. Example: Return Lo que el viento se llevo");
+                System.out.println("If you dont want to return or checkout a book press 0");
 
                 String opt = scanner.next();
                 String title = scanner.nextLine();

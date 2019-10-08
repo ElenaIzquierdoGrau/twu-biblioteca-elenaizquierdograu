@@ -33,7 +33,7 @@ public class BibliotecaTest {
     }
 
     @Test
-    public void listBooksFromMenu() throws InvalidMenuOptionException{
+    public void listBooksFromMenuTest() throws InvalidMenuOptionException{
         ArrayList<Book> books_expected = new ArrayList<Book>();
         Book a = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
         Book b = new Book("La sombra del viento",2017,"Elena Grau");
@@ -54,6 +54,13 @@ public class BibliotecaTest {
     public void illegalOptionMenu() throws InvalidMenuOptionException{
         ArrayList<Book> books;
         books = bibliotecaApp.menu.choseOption("Profile");
+    }
+
+    @Test
+    public void quitApplicationTest() throws InvalidMenuOptionException{
+        ArrayList<Book> books;
+        books = bibliotecaApp.menu.choseOption("Quit");
+        assertEquals(null, books);
     }
 
 

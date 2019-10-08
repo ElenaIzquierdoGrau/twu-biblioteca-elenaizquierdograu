@@ -16,6 +16,6 @@ public class Menu {
         if(option == "List of books"){
             return l.getBooks();
         }
-        throw new InvalidMenuOptionException("Invalid option menu: "+option);
+        throw new InvalidMenuOptionException("Please select a valid option!");
     }
 }

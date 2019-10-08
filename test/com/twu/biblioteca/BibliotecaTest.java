@@ -32,5 +32,29 @@ public class BibliotecaTest {
         }
     }
 
+    @Test
+    public void listBooksFromMenu() throws InvalidMenuOptionException{
+        ArrayList<Book> books_expected = new ArrayList<Book>();
+        Book a = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
+        Book b = new Book("La sombra del viento",2017,"Elena Grau");
+        books_expected.add(a);
+        books_expected.add(b);
+
+        ArrayList<Book> books;
+        books = bibliotecaApp.menu.choseOption("List of books");
+
+        for(int i = 0; i<books.size(); i++){
+            assertEquals(books_expected.get(i).title,books.get(i).title);
+            assertEquals(books_expected.get(i).year,books.get(i).year);
+            assertEquals(books_expected.get(i).author,books.get(i).author);
+        }
+    }
+
+    @Test(expected=InvalidMenuOptionException.class)
+    public void illegalOptionMenu() throws InvalidMenuOptionException{
+        ArrayList<Book> books;
+        books = bibliotecaApp.menu.choseOption("Profile");
+    }
+
 
 }

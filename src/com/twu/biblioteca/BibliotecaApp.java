@@ -24,7 +24,8 @@ public class BibliotecaApp {
 
             if (res != null) {
                 System.out.println("Here you have the list of books of the library");
-
+                String first_line = "|      Title            |       Author      |   Year  |";
+                System.out.println(first_line);
                 for (Book r : res) {
                     String line = "";
                     line = line + r.title + " | " + r.author + " | " + r.year;

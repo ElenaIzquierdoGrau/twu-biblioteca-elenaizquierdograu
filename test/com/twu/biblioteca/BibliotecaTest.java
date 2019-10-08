@@ -14,6 +14,7 @@ public class BibliotecaTest {
     private BibliotecaApp bibliotecaApp = new BibliotecaApp();
     private Library l = new Library();
 
+
     @Test
     public void welcomeMessageTest() {
         assertEquals("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!", bibliotecaApp.getWelcomeMessage());
@@ -48,15 +49,8 @@ public class BibliotecaTest {
         printWriter.println("Please select a valid option!");
         String expected = expectedStringWriter.toString();
 
-        ArrayList<Book> books = bibliotecaApp.menu.choseOption(3);
+        ArrayList<Book> books = bibliotecaApp.menu.choseOption(8);
         assertEquals(expected,outContent.toString());
-        assertNull(books);
-    }
-
-    @Test
-    public void quitApplicationTest(){
-        ArrayList<Book> books;
-        books = bibliotecaApp.menu.choseOption(2);
         assertNull(books);
     }
 
@@ -99,9 +93,7 @@ public class BibliotecaTest {
     public void successfulCheckOutBookTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        Book book = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
-        book.checkOut();
-        assertEquals(true, book.getCheckedOut());
+        l.checkOutBook("Lo que el viento se llevo");
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
@@ -146,9 +138,10 @@ public class BibliotecaTest {
     public void successfulReturnBookTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        Book book = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
+
+        Book book = l.infoBook("Lo que el viento se llevo");
         book.setCheckedOut(true);
-        book.returnBook();
+        l.returnBook("Lo que el viento se llevo");
         assertEquals(false, book.getCheckedOut());
 
         StringWriter expectedStringWriter = new StringWriter();
@@ -163,8 +156,7 @@ public class BibliotecaTest {
     public void unavailableReturnBookTest(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        Book book = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
-        book.returnBook();
+        l.returnBook("Lo que el viento se llevo");
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);

@@ -50,4 +50,14 @@ public class Library {
         }
         if(!found) System.out.println("That is not a valid book to return");
     }
+
+    public Book infoBook(String title){
+        for (Book book : books) {
+            if (book.title.equals(title)) {
+                return book;
+            }
+        }
+        System.out.println("Book not found");
+        return null;
+    }
 }

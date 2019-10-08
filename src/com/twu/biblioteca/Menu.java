@@ -14,10 +14,10 @@ public class Menu {
     }
 
     public ArrayList<Book> choseOption(String option) throws InvalidMenuOptionException{
-        if(option == "List of books"){
-            return l.getBooks();
+        if(option.equals("List of books")){
+            return l.getAvailableBooks();
         }
-        else if(option == "Quit"){
+        else if(option.equals("Quit")){
             return null;
         }
         throw new InvalidMenuOptionException("Please select a valid option!");

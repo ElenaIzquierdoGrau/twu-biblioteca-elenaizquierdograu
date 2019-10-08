@@ -15,4 +15,22 @@ public class Library {
     public ArrayList<Book> getBooks() {
         return books;
     }
+
+    public ArrayList<Book> getAvailableBooks(){
+        ArrayList<Book> availableBooks = new ArrayList<Book>();
+        for(int i = 0; i<books.size(); i++) {
+            if(!books.get(i).checkedOut){
+                availableBooks.add(books.get(i));
+            }
+        }
+        return availableBooks;
+    }
+
+    public void checkOutBook(String title){
+        for(int i = 0; i<books.size(); i++) {
+            if(books.get(i).title.equals(title)){
+                books.get(i).checkOut();
+            }
+        }
+    }
 }

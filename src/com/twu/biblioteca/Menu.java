@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
+
     public char displayAndChoseOption(){
         System.out.println("Choose a menu option(1, 2 or 3)");
         System.out.println("1. List of books");

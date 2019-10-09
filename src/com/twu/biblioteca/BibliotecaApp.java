@@ -44,7 +44,7 @@ public class BibliotecaApp {
                 String title = scanner.nextLine();
 
                 if (opt.equals("Checkout")) {
-                    bibliotecaApp.l.checkOutBook(title.trim());
+                    bibliotecaApp.l.checkOutMovie(title.trim());
                 }
             }
 

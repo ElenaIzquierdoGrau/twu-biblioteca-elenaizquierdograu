@@ -36,5 +36,5 @@ public class BibliotecaTest {
 
         assertEquals(expected,outContent.toString());
     }
-    
+
 }

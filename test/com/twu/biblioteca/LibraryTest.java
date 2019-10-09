@@ -30,12 +30,11 @@ public class LibraryTest {
 
     @Test
     public void getBookInfoCorrectlyWhenAskedByTitle(){
-        Book b = new Book("Lo que el viento se llevo",1997,"Elena Izquierdo");
         Book res = l.infoBook("Lo que el viento se llevo");
 
-        assertEquals(b.title,res.title);
-        assertEquals(b.author,res.author);
-        assertEquals(b.year,res.year);
+        assertEquals("Lo que el viento se llevo",res.title);
+        assertEquals("Elena Izquierdo",res.author);
+        assertEquals("1997",res.year.toString());
     }
 
     @Test

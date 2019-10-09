@@ -39,7 +39,7 @@ public class UserTest {
         // When authenticating
         authenticationService.login(username, password);
 
-        printWriter.println("LogIn successful. Welcome to Biblioteca!");
+        printWriter.println("LogIn successful!");
         String expected = expectedStringWriter.toString();
         assertEquals(expected,outContent.toString());
     }

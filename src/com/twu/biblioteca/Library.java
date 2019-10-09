@@ -21,11 +21,16 @@ public class Library {
 
     public void printAllBooks() {
         System.out.println("Here you have the list of all the books in the library");
-        String first_line = "|      Title            |       Author      |   Year  |";
+        String first_line = "|      Title            |       Author      |   Year  |    User who has the book";
         System.out.println(first_line);
         for (Book b : books) {
+            String user;
+            if(b.libraryNumber == null){
+                user = "None";
+            }
+            else user = b.libraryNumber;
             String line = "";
-            line = line + b.title + " | " + b.author + " | " + b.year;
+            line = line + b.title + " | " + b.author + " | " + b.year + " | " + user;
             System.out.println(line);
         }
     }
@@ -38,9 +43,14 @@ public class Library {
             }
         }
         System.out.println("Here you have the list of available books of the library");
-        String first_line = "|      Title            |       Author      |   Year  |";
+        String first_line = "|      Title            |       Author      |   Year";
         System.out.println(first_line);
         for (Book ab : availableBooks) {
+            String user;
+            if(ab.libraryNumber == null){
+                user = "None";
+            }
+            else user = ab.libraryNumber;
             String line = "";
             line = line + ab.title + " | " + ab.author + " | " + ab.year;
             System.out.println(line);

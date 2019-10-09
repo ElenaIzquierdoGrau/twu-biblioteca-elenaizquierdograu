@@ -9,7 +9,8 @@ public class Menu {
         System.out.println("1. List of books");
         System.out.println("2. Return book");
         System.out.println("3. List of movies");
-        System.out.println("4. Quit application");
+        System.out.println("4. List of all books including checkout users information");
+        System.out.println("5. Quit application");
         Scanner scanner = new Scanner(System.in);
 
         int option = scanner.nextInt();
@@ -21,6 +22,8 @@ public class Menu {
             case 3:
                 return 'm';
             case 4:
+                return 'b';
+            case 5:
                 return 'q';
             default:
                 System.out.println("Please select a valid option!");

@@ -72,6 +72,10 @@ public class BibliotecaApp {
                     bibliotecaApp.l.returnBook(title);
                 }
             }
+
+            else if(option == 'b'){
+                bibliotecaApp.l.printAllBooks();
+            }
             option = bibliotecaApp.menu.displayAndChoseOption();
         }
         System.out.println("Good bye! See you soon!");

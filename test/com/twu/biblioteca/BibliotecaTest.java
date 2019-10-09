@@ -27,9 +27,9 @@ public class BibliotecaTest {
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
         printWriter.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
         printWriter.println("Here you have the list of all the books in the library");
-        printWriter.println("|      Title            |       Author      |   Year  |");
-        printWriter.println("Lo que el viento se llevo | Elena Izquierdo | 1997");
-        printWriter.println("La sombra del viento | Elena Grau | 2017");
+        printWriter.println("|      Title            |       Author      |   Year  |    User who has the book");
+        printWriter.println("Lo que el viento se llevo | Elena Izquierdo | 1997 | None");
+        printWriter.println("La sombra del viento | Elena Grau | 2017 | None");
         String expected = expectedStringWriter.toString();
 
         bibliotecaApp.printAllBooks();

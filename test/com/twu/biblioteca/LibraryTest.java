@@ -18,7 +18,7 @@ public class LibraryTest {
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
         printWriter.println("Here you have the list of available books of the library");
-        printWriter.println("|      Title            |       Author      |   Year  |");
+        printWriter.println("|      Title            |       Author      |   Year");
         printWriter.println("Lo que el viento se llevo | Elena Izquierdo | 1997");
         printWriter.println("La sombra del viento | Elena Grau | 2017");
         String expected = expectedStringWriter.toString();

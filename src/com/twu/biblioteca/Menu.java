@@ -8,7 +8,8 @@ public class Menu {
         System.out.println("Choose a menu option(1, 2 or 3)");
         System.out.println("1. List of books");
         System.out.println("2. Return book");
-        System.out.println("3. Quit application");
+        System.out.println("3. List of movies");
+        System.out.println("4. Quit application");
         Scanner scanner = new Scanner(System.in);
 
         int option = scanner.nextInt();
@@ -18,6 +19,8 @@ public class Menu {
             case 2:
                 return 'r';
             case 3:
+                return 'm';
+            case 4:
                 return 'q';
             default:
                 System.out.println("Please select a valid option!");

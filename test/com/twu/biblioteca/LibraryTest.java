@@ -129,4 +129,21 @@ public class LibraryTest {
         assertEquals(expected,outContent.toString());
     }
 
+    @Test
+    public void successfullyListAvailableMoviesFromLibrary(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Here you have the list of available movies of the library");
+        printWriter.println("|      Name            |       Year      |   Director  |   Rate  |");
+        printWriter.println("Malditos bastardos | 2008 | Quentin Tarantino | 10");
+        printWriter.println("Los pitufos | 2015 | Carmen Machi | No rating");
+        String expected = expectedStringWriter.toString();
+
+        l.listAvailableMovies();
+
+        assertEquals(expected,outContent.toString());
+    }
+
 }

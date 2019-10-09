@@ -34,6 +34,10 @@ public class BibliotecaApp {
                 }
             }
 
+            else if(option == 'm'){
+                bibliotecaApp.l.listAvailableMovies();
+            }
+
             else if(option == 'r'){
                 System.out.println("Write the title of the book you want to return");
                 String title = scanner.nextLine();

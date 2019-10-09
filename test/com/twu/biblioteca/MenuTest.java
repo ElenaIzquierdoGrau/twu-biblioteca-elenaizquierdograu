@@ -18,7 +18,8 @@ public class MenuTest {
         printWriter.println("Choose a menu option(1, 2 or 3)");
         printWriter.println("1. List of books");
         printWriter.println("2. Return book");
-        printWriter.println("3. Quit application");
+        printWriter.println("3. List of movies");
+        printWriter.println("4. Quit application");
         printWriter.println("Please select a valid option!");
         String expected = expectedStringWriter.toString();
         ByteArrayInputStream in = new ByteArrayInputStream("40".getBytes());
@@ -47,12 +48,21 @@ public class MenuTest {
         System.setIn(System.in);
     }
     @Test
-    public void shouldReturnCharqWhenSelectingOption3InMenu(){
-        ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes());
+    public void shouldReturnCharqWhenSelectingOption4InMenu(){
+        ByteArrayInputStream in = new ByteArrayInputStream("4".getBytes());
         System.setIn(in);
         char res = menu.displayAndChoseOption();
 
         assertEquals('q',res);
+        System.setIn(System.in);
+    }
+    @Test
+    public void shouldReturnCharmWhenSelectingOption3InMenu(){
+        ByteArrayInputStream in = new ByteArrayInputStream("3".getBytes());
+        System.setIn(in);
+        char res = menu.displayAndChoseOption();
+
+        assertEquals('m',res);
         System.setIn(System.in);
     }
 }

@@ -44,4 +44,12 @@ public class AuthenticationService {
         }
 
     }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
 }

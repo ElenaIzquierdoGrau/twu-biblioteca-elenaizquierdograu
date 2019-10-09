@@ -57,9 +57,9 @@ public class Library {
         }
     }
 
-    public void checkOutBook(String title){
+    public void checkOutBook(String title, AuthenticationService authenticationService){
         Book b = getBook(title);
-        if(b != null) b.checkOut("111-1111");
+        if(b != null) b.checkOut(authenticationService.currentUser.getLibraryNumber());
         else System.out.println("Sorry, that book is not available");
     }
     public void returnBook(String title){

@@ -107,4 +107,12 @@ public class UserTest {
 
         assertEquals(expected, outContent.toString());
     }
+
+    @Test
+    public void shouldChangeCurrentUserAttributeWhenLogInWithAnotherUser() {
+        authenticationService.login("111-1111","1234");
+        Boolean b = authenticationService.login("222-2222","1234");
+        assertTrue(b);
+        assertEquals("222-2222",authenticationService.currentUser.getLibraryNumber());
+    }
 }

@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BibliotecaApp {
@@ -36,7 +35,7 @@ public class BibliotecaApp {
 
                     AuthenticationService authenticationService = new AuthenticationService();
 
-                    if(authenticationService.login(libraryNumber,password)) bibliotecaApp.l.checkOutBook(title.trim());
+                    if(authenticationService.login(libraryNumber,password)) bibliotecaApp.l.checkOutBook(title.trim(), authenticationService);
                 }
             }
 

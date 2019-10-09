@@ -7,14 +7,19 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
 public class LibraryTest {
     private Library l;
+    private AuthenticationService authenticationService;
     @Before
     public void setUp() {
         l = new Library();
+        authenticationService = new AuthenticationService();
+        ArrayList<User> users = authenticationService.getUsers();
+        authenticationService.setCurrentUser(users.get(0));
     }
 
     @Test
@@ -47,7 +52,7 @@ public class LibraryTest {
     public void successfulCheckOutBookWhenCheckoutABookAvailable(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        l.checkOutBook("Lo que el viento se llevo");
+        l.checkOutBook("Lo que el viento se llevo", authenticationService);
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
@@ -61,7 +66,7 @@ public class LibraryTest {
     public void unsuccesfulCheckoutBookWhenWrongSpellingTitle(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        l.checkOutBook("Lo que el viento se levo");
+        l.checkOutBook("Lo que el viento se levo", authenticationService);
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
@@ -79,7 +84,7 @@ public class LibraryTest {
         Book b = l.getBook("Lo que el viento se llevo");
         b.setCheckedOut(true);
 
-        l.checkOutBook("Lo que el viento se llevo");
+        l.checkOutBook("Lo que el viento se llevo", authenticationService);
 
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);

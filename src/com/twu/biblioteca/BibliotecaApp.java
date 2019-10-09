@@ -21,7 +21,7 @@ public class BibliotecaApp {
                 System.out.println("\n");
                 System.out.println("You want to checkout some of these books?");
                 System.out.println("To checkout a book enter Checkout and the title with a space between them. Example: Checkout Lo que el viento se llevo");
-                System.out.println("If you dont want to checkout a book press 0");
+                System.out.println("If you dont want to checkout a book write any other thing");
 
                 String opt = scanner.next();
                 String title = scanner.nextLine();
@@ -45,7 +45,7 @@ public class BibliotecaApp {
                 System.out.println("\n");
                 System.out.println("You want to checkout some of these movies?");
                 System.out.println("To checkout a movie enter Checkout and the title with a space between them. Example: Checkout Malditos bastardos");
-                System.out.println("If you dont want to checkout a movie press 0");
+                System.out.println("If you dont want to checkout a movie write any other thing");
 
                 String opt = scanner.next();
                 String title = scanner.nextLine();

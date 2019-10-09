@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
 public class Book {
-    String title;
-    Integer year;
-    String author;
-    Boolean checkedOut;
-    String libraryNumber;
+    private String title;
+    private Integer year;
+    private String author;
+    private Boolean checkedOut;
+    private String libraryNumber;
 
     public Book(String title, Integer year, String author){
         this.title = title;
@@ -39,11 +39,25 @@ public class Book {
     public Boolean getCheckedOut() {
         return checkedOut;
     }
+    public String getLibraryNumberFromUser() {
+        return libraryNumber;
+    }
+
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     public void setCheckedOut(Boolean checkedOut) {
         this.checkedOut = checkedOut;
     }
 
-    public String getLibraryNumberFromUser() {
-        return libraryNumber;
-    }
 }

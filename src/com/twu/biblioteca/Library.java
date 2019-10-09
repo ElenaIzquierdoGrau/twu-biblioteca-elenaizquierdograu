@@ -25,12 +25,12 @@ public class Library {
         System.out.println(first_line);
         for (Book b : books) {
             String user;
-            if(b.libraryNumber == null){
+            if(b.getLibraryNumberFromUser() == null){
                 user = "None";
             }
-            else user = b.libraryNumber;
+            else user = b.getLibraryNumberFromUser();
             String line = "";
-            line = line + b.title + " | " + b.author + " | " + b.year + " | " + user;
+            line = line + b.getTitle() + " | " + b.getAuthor() + " | " + b.getYear() + " | " + user;
             System.out.println(line);
         }
     }
@@ -38,7 +38,7 @@ public class Library {
     public void listAvailableBooks(){
         ArrayList<Book> availableBooks = new ArrayList<Book>();
         for (Book book : books) {
-            if (!book.checkedOut) {
+            if (!book.getCheckedOut()) {
                 availableBooks.add(book);
             }
         }
@@ -47,12 +47,12 @@ public class Library {
         System.out.println(first_line);
         for (Book ab : availableBooks) {
             String user;
-            if(ab.libraryNumber == null){
+            if(ab.getLibraryNumberFromUser() == null){
                 user = "None";
             }
-            else user = ab.libraryNumber;
+            else user = ab.getLibraryNumberFromUser();
             String line = "";
-            line = line + ab.title + " | " + ab.author + " | " + ab.year;
+            line = line + ab.getTitle() + " | " + ab.getAuthor() + " | " + ab.getYear();
             System.out.println(line);
         }
     }
@@ -70,7 +70,7 @@ public class Library {
 
     public Book getBook(String title){
         for (Book book : books) {
-            if (book.title.equals(title)) {
+            if (book.getTitle().equals(title)) {
                 return book;
             }
         }

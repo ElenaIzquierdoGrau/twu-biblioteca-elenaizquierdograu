@@ -22,4 +22,18 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public String getEmail() { return email; }
+
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public String getName() { return name; }
+
+    public void displayProfileInformation() {
+        System.out.println("" + name + "'s profile:");
+        System.out.println("Name: " + name);
+        System.out.println("Email: " + email);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println("\n");
+    }
 }

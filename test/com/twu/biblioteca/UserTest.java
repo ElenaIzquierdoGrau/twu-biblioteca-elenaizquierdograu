@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import javax.jnlp.FileContents;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
@@ -80,5 +81,25 @@ public class UserTest {
         printWriter.println("LogIn not successful. User not found.");
         String expected = expectedStringWriter.toString();
         assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void displayUserProfileInformationSuccessfullyWhenAsked() {
+        User user = authenticationService.getUser("111-1111");
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+
+        printWriter.println("Elena's profile:");
+        printWriter.println("Name: Elena");
+        printWriter.println("Email: elena.izquierdo@email.com");
+        printWriter.println("Phone Number: 612345678");
+        printWriter.println("\n");
+        String expected = expectedStringWriter.toString();
+
+        user.displayProfileInformation();
+
+        assertEquals(expected, outContent.toString());
     }
 }

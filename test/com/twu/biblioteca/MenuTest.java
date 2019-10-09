@@ -15,12 +15,13 @@ public class MenuTest {
         System.setOut(new PrintStream(outContent));
         StringWriter expectedStringWriter = new StringWriter();
         PrintWriter printWriter = new PrintWriter(expectedStringWriter);
-        printWriter.println("Choose a menu option(1, 2 or 3)");
+        printWriter.println("Choose a menu option(1, 2, 3, 4, 5 or 6)");
         printWriter.println("1. List of books");
         printWriter.println("2. Return book");
         printWriter.println("3. List of movies");
         printWriter.println("4. List of all books including checkout users information");
-        printWriter.println("5. Quit application");
+        printWriter.println("5. View profile");
+        printWriter.println("6. Quit application");
         printWriter.println("Please select a valid option!");
         String expected = expectedStringWriter.toString();
         ByteArrayInputStream in = new ByteArrayInputStream("40".getBytes());
@@ -49,8 +50,8 @@ public class MenuTest {
         System.setIn(System.in);
     }
     @Test
-    public void shouldReturnCharqWhenSelectingOption4InMenu(){
-        ByteArrayInputStream in = new ByteArrayInputStream("5".getBytes());
+    public void shouldReturnCharqWhenSelectingOption6InMenu(){
+        ByteArrayInputStream in = new ByteArrayInputStream("6".getBytes());
         System.setIn(in);
         char res = menu.displayAndChoseOption();
 
@@ -74,6 +75,16 @@ public class MenuTest {
         char res = menu.displayAndChoseOption();
 
         assertEquals('b',res);
+        System.setIn(System.in);
+    }
+
+    @Test
+    public void shouldReturnCharpWhenSelectingOption5InMenu(){
+        ByteArrayInputStream in = new ByteArrayInputStream("5".getBytes());
+        System.setIn(in);
+        char res = menu.displayAndChoseOption();
+
+        assertEquals('p',res);
         System.setIn(System.in);
     }
 }

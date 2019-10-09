@@ -76,6 +76,21 @@ public class BibliotecaApp {
             else if(option == 'b'){
                 bibliotecaApp.l.printAllBooks();
             }
+
+            else if(option == 'p'){
+                System.out.println("To be able to view your information you must log in");
+                System.out.println("To Login you must write your library number");
+
+                String libraryNumber = scanner.nextLine();
+                System.out.println("Write your password");
+                String password = scanner.nextLine();
+
+                AuthenticationService authenticationService = new AuthenticationService();
+
+                if(authenticationService.login(libraryNumber,password)){
+                    authenticationService.currentUser.displayProfileInformation();
+                }
+            }
             option = bibliotecaApp.menu.displayAndChoseOption();
         }
         System.out.println("Good bye! See you soon!");

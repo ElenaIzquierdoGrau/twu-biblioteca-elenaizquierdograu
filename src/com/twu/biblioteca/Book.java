@@ -5,6 +5,7 @@ public class Book {
     Integer year;
     String author;
     Boolean checkedOut;
+    String libraryNumber;
 
     public Book(String title, Integer year, String author){
         this.title = title;
@@ -13,9 +14,10 @@ public class Book {
         this.checkedOut = false;
     }
 
-    public void checkOut() {
+    public void checkOut(String libraryNumber) {
         if(!checkedOut){
             System.out.println("Thank you! Enjoy the book");
+            this.libraryNumber = libraryNumber;
             checkedOut = true;
         }
         else{
@@ -26,6 +28,7 @@ public class Book {
     public void returnBook() {
         if(checkedOut){
             checkedOut = false;
+            this.libraryNumber = null;
             System.out.println("Thank you for returning the book");
         }
         else{
@@ -38,5 +41,9 @@ public class Book {
     }
     public void setCheckedOut(Boolean checkedOut) {
         this.checkedOut = checkedOut;
+    }
+
+    public String getLibraryNumberFromUser() {
+        return libraryNumber;
     }
 }

@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AuthenticationService {
     private ArrayList<User> users;
@@ -24,19 +25,22 @@ public class AuthenticationService {
         return null;
     }
 
-    public void login(String libraryNumber, String password) {
+    public Boolean login(String libraryNumber, String password) {
         User foundUser = getUser(libraryNumber);
         if(foundUser != null){
             if(foundUser.getPassword().equals(password)){
                 currentUser = foundUser;
-                System.out.println("LogIn successful. Welcome to Biblioteca!");
+                System.out.println("LogIn successful!");
+                return true;
             }
             else{
                 System.out.println("LogIn not successful. Wrong password.");
+                return false;
             }
         }
         else{
             System.out.println("LogIn not successful. User not found.");
+            return false;
         }
 
     }

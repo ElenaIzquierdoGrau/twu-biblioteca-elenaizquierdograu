@@ -28,7 +28,15 @@ public class BibliotecaApp {
                 String title = scanner.nextLine();
 
                 if (opt.equals("Checkout")) {
-                    bibliotecaApp.l.checkOutBook(title.trim());
+                    System.out.println("In order to checkout a book you must Log In with your credentials");
+                    System.out.println("To Login you must write your library number");
+                    String libraryNumber = scanner.nextLine();
+                    System.out.println("Write your password");
+                    String password = scanner.nextLine();
+
+                    AuthenticationService authenticationService = new AuthenticationService();
+
+                    if(authenticationService.login(libraryNumber,password)) bibliotecaApp.l.checkOutBook(title.trim());
                 }
             }
 
@@ -49,9 +57,20 @@ public class BibliotecaApp {
             }
 
             else if(option == 'r'){
-                System.out.println("Write the title of the book you want to return");
-                String title = scanner.nextLine();
-                bibliotecaApp.l.returnBook(title);
+                System.out.println("In order to return a book you must Log In with your credentials");
+                System.out.println("To Login you must write your library number");
+
+                String libraryNumber = scanner.nextLine();
+                System.out.println("Write your password");
+                String password = scanner.nextLine();
+
+                AuthenticationService authenticationService = new AuthenticationService();
+
+                if(authenticationService.login(libraryNumber,password)){
+                    System.out.println("Write the title of the book you want to return");
+                    String title = scanner.nextLine();
+                    bibliotecaApp.l.returnBook(title);
+                }
             }
             option = bibliotecaApp.menu.displayAndChoseOption();
         }

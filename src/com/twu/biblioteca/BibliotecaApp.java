@@ -29,13 +29,23 @@ public class BibliotecaApp {
 
                 if (opt.equals("Checkout")) {
                     bibliotecaApp.l.checkOutBook(title.trim());
-                } else if (opt.equals("Return")) {
-                    bibliotecaApp.l.returnBook(title.trim());
                 }
             }
 
             else if(option == 'm'){
                 bibliotecaApp.l.listAvailableMovies();
+
+                System.out.println("\n");
+                System.out.println("You want to checkout some of these movies?");
+                System.out.println("To checkout a movie enter Checkout and the title with a space between them. Example: Checkout Malditos bastardos");
+                System.out.println("If you dont want to checkout a movie press 0");
+
+                String opt = scanner.next();
+                String title = scanner.nextLine();
+
+                if (opt.equals("Checkout")) {
+                    bibliotecaApp.l.checkOutBook(title.trim());
+                }
             }
 
             else if(option == 'r'){

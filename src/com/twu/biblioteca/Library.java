@@ -48,37 +48,22 @@ public class Library {
     }
 
     public void checkOutBook(String title){
-        boolean found = false;
-        for (Book book : books) {
-            if(!found) {
-                if (book.title.equals(title)) {
-                    book.checkOut();
-                    found = true;
-                }
-            }
-        }
-        if(!found) System.out.println("Sorry, that book is not available");
+        Book b = getBook(title);
+        if(b != null) b.checkOut();
+        else System.out.println("Sorry, that book is not available");
     }
     public void returnBook(String title){
-        boolean found = false;
-        for (Book book : books) {
-            if(!found) {
-                if (book.title.equals(title)) {
-                    book.returnBook();
-                    found = true;
-                }
-            }
-        }
-        if(!found) System.out.println("That is not a valid book to return");
+        Book b = getBook(title);
+        if(b != null) b.returnBook();
+        else System.out.println("That is not a valid book to return");
     }
 
-    public Book infoBook(String title){
+    public Book getBook(String title){
         for (Book book : books) {
             if (book.title.equals(title)) {
                 return book;
             }
         }
-        System.out.println("Book not found");
         return null;
     }
 
@@ -101,5 +86,20 @@ public class Library {
             line = line + am.getName() + " | " + am.getYear() + " | " + am.getDirector() + " | " + rate;
             System.out.println(line);
         }
+    }
+
+    public Movie getMovie(String name) {
+        for (Movie movie : movies) {
+            if (movie.getName().equals(name)) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
+    public void checkOutMovie(String name) {
+        Movie m = getMovie(name);
+        if(m == null) System.out.println("Sorry, that movie is not available");
+        else m.checkOut();
     }
 }

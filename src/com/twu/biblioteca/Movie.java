@@ -35,4 +35,15 @@ public class Movie {
         return checkedout;
     }
 
+    public void setCheckedout(Boolean checkedout) {
+        this.checkedout = checkedout;
+    }
+
+    public void checkOut() {
+        if(!this.checkedout){
+            System.out.println("Thank you! Enjoy the movie");
+            this.checkedout = true;
+        }
+        else System.out.println("Sorry, that movie is not available");
+    }
 }

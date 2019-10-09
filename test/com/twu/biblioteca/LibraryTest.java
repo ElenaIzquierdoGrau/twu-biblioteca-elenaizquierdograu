@@ -30,7 +30,7 @@ public class LibraryTest {
 
     @Test
     public void getBookInfoCorrectlyWhenAskedByTitle(){
-        Book res = l.infoBook("Lo que el viento se llevo");
+        Book res = l.getBook("Lo que el viento se llevo");
 
         assertEquals("Lo que el viento se llevo",res.title);
         assertEquals("Elena Izquierdo",res.author);
@@ -70,7 +70,7 @@ public class LibraryTest {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 
-        Book b = l.infoBook("Lo que el viento se llevo");
+        Book b = l.getBook("Lo que el viento se llevo");
         b.setCheckedOut(true);
 
         l.checkOutBook("Lo que el viento se llevo");
@@ -87,7 +87,7 @@ public class LibraryTest {
     public void successfulReturnBookWhenBookIsAlreadyCheckedout(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        Book b = l.infoBook("Lo que el viento se llevo");
+        Book b = l.getBook("Lo que el viento se llevo");
         b.setCheckedOut(true);
         l.returnBook("Lo que el viento se llevo");
 
@@ -117,7 +117,7 @@ public class LibraryTest {
     public void unsuccessfulReturnBookWhenSpellingTitleWrong(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        Book b = l.infoBook("Lo que el viento se llevo");
+        Book b = l.getBook("Lo que el viento se llevo");
         b.setCheckedOut(true);
         l.returnBook("Lo que el veinto se llevo");
 
@@ -142,6 +142,53 @@ public class LibraryTest {
         String expected = expectedStringWriter.toString();
 
         l.listAvailableMovies();
+
+        assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void successfulCheckOutMovieWhenCheckoutAMovieAvailable(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        l.checkOutMovie("Malditos bastardos");
+
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Thank you! Enjoy the movie");
+        String expected = expectedStringWriter.toString();
+
+        assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void unsuccesfulCheckoutMovieWhenWrongSpellingTitle(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        l.checkOutMovie("Malditos bastrdos");
+
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Sorry, that movie is not available");
+        String expected = expectedStringWriter.toString();
+
+        assertEquals(expected,outContent.toString());
+    }
+
+    @Test
+    public void unsuccesfulCheckoutMovieWhenMovieAlreadyCheckedOut(){
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        Movie m = l.getMovie("Malditos bastardos");
+        if(m != null) {
+            m.setCheckedout(true);
+            l.checkOutMovie("Malditos bastrdos");
+        }
+
+        StringWriter expectedStringWriter = new StringWriter();
+        PrintWriter printWriter = new PrintWriter(expectedStringWriter);
+        printWriter.println("Sorry, that movie is not available");
+        String expected = expectedStringWriter.toString();
 
         assertEquals(expected,outContent.toString());
     }

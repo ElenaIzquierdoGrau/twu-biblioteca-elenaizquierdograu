@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a93a1b1a-243e-4ca8-89ef-9e2325a8371d" name="Default Changelist" comment="add user interaction via command line + some changes in menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Library.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/Library.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/LibraryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/LibraryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Library.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/LibraryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MenuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/MovieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/UserTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -160,7 +159,7 @@
       <workItem from="1570520858131" duration="14627000" />
       <workItem from="1570541443093" duration="8728000" />
       <workItem from="1570558060392" duration="106000" />
-      <workItem from="1570605807740" duration="16797000" />
+      <workItem from="1570605807740" duration="17092000" />
     </task>
     <servers />
   </component>

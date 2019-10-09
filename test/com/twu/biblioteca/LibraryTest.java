@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,7 +11,12 @@ import java.io.StringWriter;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
-    private Library l = new Library();
+    private Library l;
+    @Before
+    public void setUp() {
+        l = new Library();
+    }
+
     @Test
     public void successfullyListAllBooksAvailable(){
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

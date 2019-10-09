@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,8 +11,14 @@ import java.io.StringWriter;
 import static org.junit.Assert.*;
 
 public class BibliotecaTest {
-    private BibliotecaApp bibliotecaApp = new BibliotecaApp();
-    private Library l = new Library();
+    private BibliotecaApp bibliotecaApp;
+    private Library l;
+
+    @Before
+    public void setUp() {
+        bibliotecaApp = new BibliotecaApp();
+        l = new Library();
+    }
 
 
     @Test

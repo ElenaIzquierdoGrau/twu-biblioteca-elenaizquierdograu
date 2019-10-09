@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.jnlp.FileContents;
@@ -11,7 +12,11 @@ import java.io.StringWriter;
 import static org.junit.Assert.*;
 
 public class UserTest {
-    AuthenticationService authenticationService = new AuthenticationService();
+    AuthenticationService authenticationService;
+    @Before
+    public void setUp() {
+        authenticationService = new AuthenticationService();
+    }
     @Test
     public void successfulLoginWhenIntroducingCorrectCredentials() throws Exception {
         // Given that this current user exists
